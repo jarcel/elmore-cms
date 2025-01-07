@@ -2,6 +2,13 @@ import type { StrapiApp } from '@strapi/strapi/admin';
 
 export default {
   config: {
+    overrides: {
+      InputNumber: {
+        defaultProps: {
+          groupSeparator: '', // Removes commas
+        },
+      },
+    },
     locales: [
       // 'ar',
       // 'fr',
