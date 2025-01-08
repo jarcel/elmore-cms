@@ -16,8 +16,22 @@ module.exports = ({ env }) => ({
         },
       },
       actionOptions: {
-        upload: {},
-        uploadStream: {},
+        upload: {
+          Key: async (file) => {
+            const collectionName = file.related[0]?.__type || 'general';
+            const fileName = file.hash + file.ext;
+
+            return `${collectionName}/${fileName}`;
+          },
+        },
+        uploadStream: {
+          Key: async (file) => {
+            const collectionName = file.related[0]?.__type || 'general';
+            const fileName = file.hash + file.ext;
+
+            return `${collectionName}/${fileName}`;
+          },
+        },
         delete: {},
       },
     },
