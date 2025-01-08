@@ -12,23 +12,8 @@ module.exports = ({ env }) => ({
         endpoint: env('DO_SPACES_ENDPOINT'),
       },
       actionOptions: {
-        upload: {
-          Key: async (file) => {
-            // Generate a folder structure based on the collection
-            const collectionName = file.related[0]?.__type || 'general';
-            const fileName = file.hash + file.ext;
-
-            return `${collectionName}/${fileName}`;
-          },
-        },
-        uploadStream: {
-          Key: async (file) => {
-            const collectionName = file.related[0]?.__type || 'general';
-            const fileName = file.hash + file.ext;
-
-            return `${collectionName}/${fileName}`;
-          },
-        },
+        upload: {},
+        uploadStream: {},
         delete: {},
       },
     },
