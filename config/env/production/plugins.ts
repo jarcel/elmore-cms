@@ -10,6 +10,7 @@ module.exports = ({ env }) => ({
           },
           endpoint: env('DO_SPACES_ENDPOINT'),
           region: env('DO_SPACES_REGION'),
+          baseUrl: env('DO_SPACES_BASE_URL'),
           params: {
             Bucket: env('DO_SPACES_BUCKET'),
           },
