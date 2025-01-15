@@ -400,6 +400,8 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::location.location'
     >;
+    PrimaryColor: Schema.Attribute.String &
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     publishedAt: Schema.Attribute.DateTime;
     Publisher: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
