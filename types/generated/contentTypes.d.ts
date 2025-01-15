@@ -402,6 +402,7 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
     >;
     publishedAt: Schema.Attribute.DateTime;
     Publisher: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     Synopsis: Schema.Attribute.Text;
     Thumbnail: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     Title: Schema.Attribute.String & Schema.Attribute.Required;

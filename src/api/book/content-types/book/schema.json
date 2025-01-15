@@ -83,6 +83,11 @@
       "relation": "manyToMany",
       "target": "api::genre.genre",
       "mappedBy": "books"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
     }
   }
 }
