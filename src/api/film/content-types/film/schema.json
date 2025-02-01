@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "films",
+  "info": {
+    "singularName": "film",
+    "pluralName": "films",
+    "displayName": "Film",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Studio": {
+      "type": "string"
+    },
+    "Year": {
+      "type": "integer"
+    },
+    "Runtime": {
+      "type": "integer"
+    }
+  }
+}
