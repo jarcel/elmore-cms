@@ -404,6 +404,7 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     publishedAt: Schema.Attribute.DateTime;
     Publisher: Schema.Attribute.String;
+    Slides: Schema.Attribute.DynamicZone<['slides.tagline', 'slides.review']>;
     slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     Synopsis: Schema.Attribute.Text;
     Thumbnail: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
@@ -443,6 +444,35 @@ export interface ApiCharacterCharacter extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFilmFilm extends Struct.CollectionTypeSchema {
+  collectionName: 'films';
+  info: {
+    description: '';
+    displayName: 'Film';
+    pluralName: 'films';
+    singularName: 'film';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::film.film'> &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    Runtime: Schema.Attribute.Integer;
+    Studio: Schema.Attribute.String;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Year: Schema.Attribute.Integer;
   };
 }
 
@@ -1017,6 +1047,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::book.book': ApiBookBook;
       'api::character.character': ApiCharacterCharacter;
+      'api::film.film': ApiFilmFilm;
       'api::genre.genre': ApiGenreGenre;
       'api::location.location': ApiLocationLocation;
       'plugin::content-releases.release': PluginContentReleasesRelease;

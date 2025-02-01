@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_slides_reviews",
+  "info": {
+    "displayName": "Review",
+    "icon": "star"
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "text"
+    },
+    "PublicationImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Credit": {
+      "type": "string"
+    },
+    "StarRating": {
+      "type": "decimal",
+      "max": 5,
+      "min": 0,
+      "default": 0
+    }
+  }
+}

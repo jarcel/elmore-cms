@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_slides_taglines",
+  "info": {
+    "displayName": "Tagline",
+    "icon": "quote"
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "text"
+    }
+  }
+}
