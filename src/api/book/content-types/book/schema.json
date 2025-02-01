@@ -98,8 +98,15 @@
       "type": "dynamiczone",
       "components": [
         "slides.tagline",
-        "slides.review"
+        "slides.review",
+        "slides.character"
       ]
+    },
+    "NextBooks": {
+      "displayName": "Next Books",
+      "type": "component",
+      "repeatable": false,
+      "component": "books.next-books"
     }
   }
 }

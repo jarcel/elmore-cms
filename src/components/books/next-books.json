@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_books_next_books",
+  "info": {
+    "displayName": "Next Books",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "books": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::book.book"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_slides_characters",
+  "info": {
+    "displayName": "Character",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Content": {
+      "type": "text"
+    },
+    "CharacterImage": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

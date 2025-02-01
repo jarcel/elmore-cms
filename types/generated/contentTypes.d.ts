@@ -400,11 +400,14 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::location.location'
     >;
+    NextBooks: Schema.Attribute.Component<'books.next-books', false>;
     PrimaryColor: Schema.Attribute.String &
       Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     publishedAt: Schema.Attribute.DateTime;
     Publisher: Schema.Attribute.String;
-    Slides: Schema.Attribute.DynamicZone<['slides.tagline', 'slides.review']>;
+    Slides: Schema.Attribute.DynamicZone<
+      ['slides.tagline', 'slides.review', 'slides.character']
+    >;
     slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     Synopsis: Schema.Attribute.Text;
     Thumbnail: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;

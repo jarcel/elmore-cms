@@ -1,5 +1,29 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BooksNextBooks extends Struct.ComponentSchema {
+  collectionName: 'components_books_next_books';
+  info: {
+    displayName: 'Next Books';
+    icon: 'book';
+  };
+  attributes: {
+    books: Schema.Attribute.Relation<'oneToMany', 'api::book.book'>;
+  };
+}
+
+export interface SlidesCharacter extends Struct.ComponentSchema {
+  collectionName: 'components_slides_characters';
+  info: {
+    displayName: 'Character';
+    icon: 'user';
+  };
+  attributes: {
+    CharacterImage: Schema.Attribute.Media<'images' | 'files'>;
+    Content: Schema.Attribute.Text;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SlidesReview extends Struct.ComponentSchema {
   collectionName: 'components_slides_reviews';
   info: {
@@ -38,6 +62,8 @@ export interface SlidesTagline extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'books.next-books': BooksNextBooks;
+      'slides.character': SlidesCharacter;
       'slides.review': SlidesReview;
       'slides.tagline': SlidesTagline;
     }
