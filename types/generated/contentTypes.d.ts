@@ -369,6 +369,56 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiAdaptationAdaptation extends Struct.CollectionTypeSchema {
+  collectionName: 'adaptations';
+  info: {
+    description: '';
+    displayName: 'Adaptation';
+    pluralName: 'adaptations';
+    singularName: 'adaptation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BillboardImage: Schema.Attribute.Media<'images' | 'files'>;
+    BillboardImageMobile: Schema.Attribute.Media<'images', true>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Director: Schema.Attribute.String;
+    FooterImage: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::adaptation.adaptation'
+    > &
+      Schema.Attribute.Private;
+    Posters: Schema.Attribute.Media<'images', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    Runtime: Schema.Attribute.Integer;
+    Slides: Schema.Attribute.DynamicZone<['slides.tagline', 'slides.review']>;
+    slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
+    SourceMaterial: Schema.Attribute.Component<
+      'adaptation-features.adaptation-source',
+      true
+    >;
+    Starring: Schema.Attribute.String;
+    Studio: Schema.Attribute.String;
+    Synopsis: Schema.Attribute.Text;
+    Thumbnail: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Title: Schema.Attribute.String & Schema.Attribute.Required;
+    Type: Schema.Attribute.Enumeration<['Film', 'TV Movie', 'TV Show']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'Film'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Writers: Schema.Attribute.String;
+    Year: Schema.Attribute.Integer;
+  };
+}
+
 export interface ApiBookBook extends Struct.CollectionTypeSchema {
   collectionName: 'books';
   info: {
@@ -447,35 +497,6 @@ export interface ApiCharacterCharacter extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-  };
-}
-
-export interface ApiFilmFilm extends Struct.CollectionTypeSchema {
-  collectionName: 'films';
-  info: {
-    description: '';
-    displayName: 'Film';
-    pluralName: 'films';
-    singularName: 'film';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::film.film'> &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    Runtime: Schema.Attribute.Integer;
-    Studio: Schema.Attribute.String;
-    Title: Schema.Attribute.String & Schema.Attribute.Required;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    Year: Schema.Attribute.Integer;
   };
 }
 
@@ -1048,9 +1069,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::adaptation.adaptation': ApiAdaptationAdaptation;
       'api::book.book': ApiBookBook;
       'api::character.character': ApiCharacterCharacter;
-      'api::film.film': ApiFilmFilm;
       'api::genre.genre': ApiGenreGenre;
       'api::location.location': ApiLocationLocation;
       'plugin::content-releases.release': PluginContentReleasesRelease;

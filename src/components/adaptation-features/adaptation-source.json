@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_adaptation_features_adaptation_sources",
+  "info": {
+    "displayName": "AdaptationSource"
+  },
+  "options": {},
+  "attributes": {
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Novel",
+        "Short Story",
+        "Novel and Screenplay",
+        "Original Screenplay",
+        "Adapted Screenplay"
+      ]
+    },
+    "book": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::book.book"
+    }
+  }
+}

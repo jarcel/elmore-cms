@@ -1,0 +1,108 @@
+{
+  "kind": "collectionType",
+  "collectionName": "adaptations",
+  "info": {
+    "singularName": "adaptation",
+    "pluralName": "adaptations",
+    "displayName": "Adaptation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Film",
+        "TV Movie",
+        "TV Show"
+      ],
+      "default": "Film",
+      "required": true
+    },
+    "Synopsis": {
+      "type": "text"
+    },
+    "Slides": {
+      "type": "dynamiczone",
+      "components": [
+        "slides.tagline",
+        "slides.review"
+      ]
+    },
+    "Director": {
+      "type": "string"
+    },
+    "Writers": {
+      "type": "string"
+    },
+    "Starring": {
+      "type": "string"
+    },
+    "Year": {
+      "type": "integer"
+    },
+    "Studio": {
+      "type": "string"
+    },
+    "Runtime": {
+      "type": "integer"
+    },
+    "Thumbnail": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "BillboardImage": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "BillboardImageMobile": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "FooterImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Posters": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "SourceMaterial": {
+      "displayName": "AdaptationSource",
+      "type": "component",
+      "repeatable": true,
+      "component": "adaptation-features.adaptation-source"
+    }
+  }
+}

@@ -1,5 +1,25 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AdaptationFeaturesAdaptationSource
+  extends Struct.ComponentSchema {
+  collectionName: 'components_adaptation_features_adaptation_sources';
+  info: {
+    displayName: 'AdaptationSource';
+  };
+  attributes: {
+    book: Schema.Attribute.Relation<'oneToOne', 'api::book.book'>;
+    Type: Schema.Attribute.Enumeration<
+      [
+        'Novel',
+        'Short Story',
+        'Novel and Screenplay',
+        'Original Screenplay',
+        'Adapted Screenplay',
+      ]
+    >;
+  };
+}
+
 export interface BooksNextBooks extends Struct.ComponentSchema {
   collectionName: 'components_books_next_books';
   info: {
@@ -62,6 +82,7 @@ export interface SlidesTagline extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'adaptation-features.adaptation-source': AdaptationFeaturesAdaptationSource;
       'books.next-books': BooksNextBooks;
       'slides.character': SlidesCharacter;
       'slides.review': SlidesReview;
