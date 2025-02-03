@@ -31,6 +31,17 @@ export interface BooksNextBooks extends Struct.ComponentSchema {
   };
 }
 
+export interface SlidesBook extends Struct.ComponentSchema {
+  collectionName: 'components_slides_books';
+  info: {
+    displayName: 'Book';
+    icon: 'book';
+  };
+  attributes: {
+    book: Schema.Attribute.Relation<'oneToOne', 'api::book.book'>;
+  };
+}
+
 export interface SlidesCharacter extends Struct.ComponentSchema {
   collectionName: 'components_slides_characters';
   info: {
@@ -84,6 +95,7 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'adaptation-features.adaptation-source': AdaptationFeaturesAdaptationSource;
       'books.next-books': BooksNextBooks;
+      'slides.book': SlidesBook;
       'slides.character': SlidesCharacter;
       'slides.review': SlidesReview;
       'slides.tagline': SlidesTagline;

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_slides_books",
+  "info": {
+    "displayName": "Book",
+    "icon": "book"
+  },
+  "options": {},
+  "attributes": {
+    "book": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::book.book"
+    }
+  }
+}

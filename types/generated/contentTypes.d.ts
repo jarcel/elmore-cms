@@ -397,7 +397,7 @@ export interface ApiAdaptationAdaptation extends Struct.CollectionTypeSchema {
     Posters: Schema.Attribute.Media<'images', true>;
     publishedAt: Schema.Attribute.DateTime;
     Runtime: Schema.Attribute.Integer;
-    Slides: Schema.Attribute.DynamicZone<['slides.tagline', 'slides.review']>;
+    Slides: Schema.Attribute.DynamicZone<['slides.review', 'slides.book']>;
     slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     SourceMaterial: Schema.Attribute.Component<
       'adaptation-features.adaptation-source',
