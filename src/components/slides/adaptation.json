@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_slides_adaptations",
+  "info": {
+    "displayName": "Adaptation",
+    "icon": "television",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "adaptation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::adaptation.adaptation"
+    },
+    "Content": {
+      "type": "richtext"
+    },
+    "AdaptationImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

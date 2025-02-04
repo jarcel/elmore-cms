@@ -20,6 +20,23 @@ export interface AdaptationFeaturesAdaptationSource
   };
 }
 
+export interface BookFeaturesAdaptationType extends Struct.ComponentSchema {
+  collectionName: 'components_book_features_adaptation_types';
+  info: {
+    displayName: 'AdaptationType';
+    icon: 'television';
+  };
+  attributes: {
+    adaptation: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::adaptation.adaptation'
+    >;
+    Type: Schema.Attribute.Enumeration<
+      ['Film', 'TV Show', 'TV Movie', 'TV Pilot']
+    >;
+  };
+}
+
 export interface BooksNextBooks extends Struct.ComponentSchema {
   collectionName: 'components_books_next_books';
   info: {
@@ -28,6 +45,23 @@ export interface BooksNextBooks extends Struct.ComponentSchema {
   };
   attributes: {
     books: Schema.Attribute.Relation<'oneToMany', 'api::book.book'>;
+  };
+}
+
+export interface SlidesAdaptation extends Struct.ComponentSchema {
+  collectionName: 'components_slides_adaptations';
+  info: {
+    description: '';
+    displayName: 'Adaptation';
+    icon: 'television';
+  };
+  attributes: {
+    adaptation: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::adaptation.adaptation'
+    >;
+    AdaptationImage: Schema.Attribute.Media<'images'>;
+    Content: Schema.Attribute.RichText;
   };
 }
 
@@ -94,7 +128,9 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'adaptation-features.adaptation-source': AdaptationFeaturesAdaptationSource;
+      'book-features.adaptation-type': BookFeaturesAdaptationType;
       'books.next-books': BooksNextBooks;
+      'slides.adaptation': SlidesAdaptation;
       'slides.book': SlidesBook;
       'slides.character': SlidesCharacter;
       'slides.review': SlidesReview;

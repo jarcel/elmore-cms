@@ -108,6 +108,15 @@
       "type": "component",
       "repeatable": true,
       "component": "adaptation-features.adaptation-source"
+    },
+    "SeriesLength": {
+      "type": "string"
+    },
+    "Developed": {
+      "type": "string"
+    },
+    "Episodes": {
+      "type": "string"
     }
   }
 }

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_book_features_adaptation_types",
+  "info": {
+    "displayName": "AdaptationType",
+    "icon": "television"
+  },
+  "options": {},
+  "attributes": {
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Film",
+        "TV Show",
+        "TV Movie",
+        "TV Pilot"
+      ]
+    },
+    "adaptation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::adaptation.adaptation"
+    }
+  }
+}

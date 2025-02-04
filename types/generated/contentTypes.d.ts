@@ -386,7 +386,9 @@ export interface ApiAdaptationAdaptation extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Developed: Schema.Attribute.String;
     Director: Schema.Attribute.String;
+    Episodes: Schema.Attribute.String;
     FooterImage: Schema.Attribute.Media<'images'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -397,6 +399,7 @@ export interface ApiAdaptationAdaptation extends Struct.CollectionTypeSchema {
     Posters: Schema.Attribute.Media<'images', true>;
     publishedAt: Schema.Attribute.DateTime;
     Runtime: Schema.Attribute.Integer;
+    SeriesLength: Schema.Attribute.String;
     Slides: Schema.Attribute.DynamicZone<['slides.review', 'slides.book']>;
     slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     SourceMaterial: Schema.Attribute.Component<
@@ -431,6 +434,10 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    Adaptation: Schema.Attribute.Component<
+      'book-features.adaptation-type',
+      true
+    >;
     BillboardImage: Schema.Attribute.Media<'images'>;
     BillboardImageMobile: Schema.Attribute.Media<'images'>;
     BookCovers: Schema.Attribute.Media<'images', true>;
@@ -456,7 +463,12 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     Publisher: Schema.Attribute.String;
     Slides: Schema.Attribute.DynamicZone<
-      ['slides.tagline', 'slides.review', 'slides.character']
+      [
+        'slides.tagline',
+        'slides.review',
+        'slides.character',
+        'slides.adaptation',
+      ]
     >;
     slug: Schema.Attribute.UID<'Title'> & Schema.Attribute.Required;
     Synopsis: Schema.Attribute.Text;
@@ -553,34 +565,6 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
     Name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiNewsUpdateNewsUpdate extends Struct.CollectionTypeSchema {
-  collectionName: 'news_updates';
-  info: {
-    displayName: 'News Updates';
-    pluralName: 'news-updates';
-    singularName: 'news-update';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Content: Schema.Attribute.Blocks;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::news-update.news-update'
-    > &
-      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1102,7 +1086,6 @@ declare module '@strapi/strapi' {
       'api::character.character': ApiCharacterCharacter;
       'api::genre.genre': ApiGenreGenre;
       'api::location.location': ApiLocationLocation;
-      'api::news-update.news-update': ApiNewsUpdateNewsUpdate;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

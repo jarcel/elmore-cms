@@ -99,7 +99,8 @@
       "components": [
         "slides.tagline",
         "slides.review",
-        "slides.character"
+        "slides.character",
+        "slides.adaptation"
       ]
     },
     "NextBooks": {
@@ -107,6 +108,12 @@
       "type": "component",
       "repeatable": false,
       "component": "books.next-books"
+    },
+    "Adaptation": {
+      "displayName": "AdaptationType",
+      "type": "component",
+      "repeatable": true,
+      "component": "book-features.adaptation-type"
     }
   }
 }
