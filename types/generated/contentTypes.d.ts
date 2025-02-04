@@ -382,7 +382,7 @@ export interface ApiAdaptationAdaptation extends Struct.CollectionTypeSchema {
   };
   attributes: {
     BillboardImage: Schema.Attribute.Media<'images' | 'files'>;
-    BillboardImageMobile: Schema.Attribute.Media<'images', true>;
+    BillboardImageMobile: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
