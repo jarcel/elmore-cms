@@ -4,7 +4,8 @@
   "info": {
     "singularName": "genre",
     "pluralName": "genres",
-    "displayName": "Genre"
+    "displayName": "Genre",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,10 @@
       "relation": "manyToMany",
       "target": "api::book.book",
       "inversedBy": "Genres"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Name"
     }
   }
 }

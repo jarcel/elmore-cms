@@ -4,7 +4,8 @@
   "info": {
     "singularName": "character",
     "pluralName": "characters",
-    "displayName": "Character"
+    "displayName": "Character",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,6 +22,10 @@
       "relation": "manyToMany",
       "target": "api::book.book",
       "mappedBy": "Characters"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Name"
     }
   }
 }

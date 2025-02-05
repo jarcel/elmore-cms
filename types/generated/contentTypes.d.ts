@@ -484,6 +484,7 @@ export interface ApiBookBook extends Struct.CollectionTypeSchema {
 export interface ApiCharacterCharacter extends Struct.CollectionTypeSchema {
   collectionName: 'characters';
   info: {
+    description: '';
     displayName: 'Character';
     pluralName: 'characters';
     singularName: 'character';
@@ -506,6 +507,7 @@ export interface ApiCharacterCharacter extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Name'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -515,6 +517,7 @@ export interface ApiCharacterCharacter extends Struct.CollectionTypeSchema {
 export interface ApiGenreGenre extends Struct.CollectionTypeSchema {
   collectionName: 'genres';
   info: {
+    description: '';
     displayName: 'Genre';
     pluralName: 'genres';
     singularName: 'genre';
@@ -534,6 +537,7 @@ export interface ApiGenreGenre extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Name'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -566,6 +570,7 @@ export interface ApiLocationLocation extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'Name'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
