@@ -20,6 +20,18 @@ export interface AdaptationFeaturesAdaptationSource
   };
 }
 
+export interface AdaptationFeaturesNextFilms extends Struct.ComponentSchema {
+  collectionName: 'components_adaptation_features_next_films';
+  info: {
+    description: '';
+    displayName: 'Next Films';
+    icon: 'television';
+  };
+  attributes: {
+    films: Schema.Attribute.Relation<'oneToMany', 'api::adaptation.adaptation'>;
+  };
+}
+
 export interface BookFeaturesAdaptationType extends Struct.ComponentSchema {
   collectionName: 'components_book_features_adaptation_types';
   info: {
@@ -128,6 +140,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'adaptation-features.adaptation-source': AdaptationFeaturesAdaptationSource;
+      'adaptation-features.next-films': AdaptationFeaturesNextFilms;
       'book-features.adaptation-type': BookFeaturesAdaptationType;
       'books.next-books': BooksNextBooks;
       'slides.adaptation': SlidesAdaptation;

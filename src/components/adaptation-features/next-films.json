@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_adaptation_features_next_films",
+  "info": {
+    "displayName": "Next Films",
+    "icon": "television",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "films": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::adaptation.adaptation"
+    }
+  }
+}
