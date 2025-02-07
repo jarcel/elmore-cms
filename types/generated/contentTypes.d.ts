@@ -396,6 +396,10 @@ export interface ApiAdaptationAdaptation extends Struct.CollectionTypeSchema {
       'api::adaptation.adaptation'
     > &
       Schema.Attribute.Private;
+    NextFilms: Schema.Attribute.Component<
+      'adaptation-features.next-films',
+      false
+    >;
     Posters: Schema.Attribute.Media<'images', true>;
     publishedAt: Schema.Attribute.DateTime;
     Runtime: Schema.Attribute.Integer;

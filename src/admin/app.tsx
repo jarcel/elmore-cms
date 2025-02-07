@@ -1,4 +1,6 @@
 import type { StrapiApp } from '@strapi/strapi/admin';
+import AuthLogo from '../extensions/el-signature-blue.svg';
+import favicon from '../extensions/el-favicon-blue.svg';
 
 export default {
   config: {
@@ -8,6 +10,13 @@ export default {
           groupSeparator: '', // Removes commas
         },
       },
+    },
+    auth: {
+      logo: AuthLogo,
+    },
+    // Replace the favicon
+    head: {
+      favicon: favicon,
     },
     locales: [
       // 'ar',
